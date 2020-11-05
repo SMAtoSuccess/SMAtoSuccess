@@ -1,0 +1,25 @@
+{
+  "name": "smatosuccess",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^15.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SMAtoSuccess/SMAtoSuccess.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SMAtoSuccess/SMAtoSuccess/issues"
+  },
+  "homepage": "https://github.com/SMAtoSuccess/SMAtoSuccess#readme"
+}
