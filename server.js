@@ -1,5 +1,4 @@
 // Dependencies
-// =============================================================
 const express = require('express');
 const exphbs = require('express-handlebars');
 const routes = require('./routes/main');
@@ -8,7 +7,6 @@ const routes = require('./routes/main');
 const session = require('express-session');
 
 // Sets up the Express App
-// =============================================================
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -16,8 +14,7 @@ const PORT = process.env.PORT || 3001;
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-// Set up the session with the 'secret', 'resave', 'saveUninitialized' options
-
+// Set up the session
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -25,9 +22,6 @@ app.use(session({
     // cookie: { secure: true }
 }));
 
-// app.get('/', (req, res) => {
-//     res.send('hello world!')
-// });
 app.use('/', routes);
 
 // Starts the server to begin listening
