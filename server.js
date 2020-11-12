@@ -23,6 +23,7 @@ app.use(session({
 }));
 
 app.use('/', routes);
+app.use('/login', routes);
 
 // Starts the server to begin listening
 // =============================================================

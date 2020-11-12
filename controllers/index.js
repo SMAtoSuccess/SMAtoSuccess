@@ -1,8 +1,7 @@
-const { Router } = require('express');
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.render('./layouts/main');
-});
+const htmlRoutes = require('./html-routes')
+
+router.use('/', htmlRoutes);
 
 module.exports = router;
