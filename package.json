@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "smatosuccess",
   "version": "1.0.0",
   "description": "",
@@ -28,4 +29,33 @@
     "url": "https://github.com/SMAtoSuccess/SMAtoSuccess/issues"
   },
   "homepage": "https://github.com/SMAtoSuccess/SMAtoSuccess#readme"
+=======
+    "name": "smatosuccess",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "dependencies": {
+        "bcrypt": "^5.0.0",
+        "canvas": "^2.6.1",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.2.0",
+        "express-session": "^1.17.1",
+        "sequelize": "^6.3.5"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SMAtoSuccess/SMAtoSuccess.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/SMAtoSuccess/SMAtoSuccess/issues"
+    },
+    "homepage": "https://github.com/SMAtoSuccess/SMAtoSuccess#readme"
+>>>>>>> develop
 }
