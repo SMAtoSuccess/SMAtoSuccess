@@ -1,7 +1,9 @@
 // Dependencies
+const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers/index');
+const sequelize = require('./config/connection');
 
 // Require the 'express-session' module
 const session = require('express-session');
@@ -22,11 +24,15 @@ app.use(session({
     // cookie: { secure: true }
 }));
 
-app.use('/', routes);
-app.use('/login', routes);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+app.use(routes);
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, () => {
-    console.log('App listening on PORT ' + PORT);
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
 });
