@@ -1,9 +1,4 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-
-// POST /api/users
-router.post('/sign-up', (req, res) => {
-=======
 const { User } = require("../../models");
 
 // GET /api/users
@@ -62,7 +57,6 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
->>>>>>> develop
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     User.create({
             username: req.body.username,
@@ -108,12 +102,6 @@ router.post('/login', (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-=======
-router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(204).end();
         });
     } else {
         res.status(404).end();
@@ -164,5 +152,4 @@ router.delete('/:id', (req, res) => {
         });
 });
 
->>>>>>> develop
 module.exports = router;

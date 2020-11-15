@@ -4,10 +4,6 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers/index');
 const sequelize = require('./config/connection');
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
 // Require the 'express-session' module
 const session = require('express-session');
 
@@ -27,14 +23,11 @@ app.use(session({
     // cookie: { secure: true }
 }));
 
-<<<<<<< HEAD
-=======
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
->>>>>>> develop
 app.use(routes);
 
 // Starts the server to begin listening
