@@ -22,8 +22,7 @@ app.use(session({
     // cookie: { secure: true }
 }));
 
-app.use('/', routes);
-app.use('/login', routes);
+app.use(routes);
 
 // Starts the server to begin listening
 // =============================================================
