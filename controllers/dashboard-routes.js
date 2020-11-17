@@ -2,7 +2,6 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { List, Item, User } = require('../models');
 
-
 router.get('/', (req, res) => {
     List.findAll({
             where: {
@@ -22,12 +21,17 @@ router.get('/', (req, res) => {
             }]
         }).then(dbListData => {
             const lists = dbListData.map(list => list.get({ plain: true }));
-            res.render('dashboard', { lists, loggedIn: true });
+            res.render('dashboard', {
+                User,
+                lists,
+                loggedIn: true
+            });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
+
 
 module.exports = router;

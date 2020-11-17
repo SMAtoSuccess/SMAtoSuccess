@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const { User, List } = require('../../models');
+
 
 router.get('/', (req, res) => {
     res.render('home');
@@ -10,10 +12,6 @@ router.get('/login', (req, res) => {
 
 router.get('/sign-up', (req, res) => {
     res.render('sign-up');
-});
-
-router.get('/dashboard', (req, res) => {
-    res.render('dashboard');
 });
 
 
