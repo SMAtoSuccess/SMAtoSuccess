@@ -5,7 +5,7 @@ const { List, Item, User } = require('../models');
 router.get('/', (req, res) => {
     List.findAll({
             where: {
-                user_id: req.session.user_id
+                id: req.session.user_id
             },
             attributes: [
                 'id',
