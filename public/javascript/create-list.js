@@ -1,10 +1,11 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="list-title"]');
 
+    const title = document.querySelector('input[name="list-title"]').value;
+    console.log(title)
     const response = await fetch(`/api/list`, {
-        method: 'POST',
+        method: 'post',
         body: JSON.stringify({
             title
         }),
@@ -12,8 +13,9 @@ async function newFormHandler(event) {
             'Content-Type': 'application/json'
         }
     });
-
+    console.log(response)
     if (response.ok) {
+        console.log('hello again')
         document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
