@@ -167,7 +167,12 @@ router.post('/list', (req, res) => {
         list_name: req.body.list_name,
         user_id: req.session.user_id
     })
-        .then(dbListData => res.json(dbListData))
+        .then(dbListData => {
+            res.json(dbListData);
+            res.render('home',{
+            })
+        })
+            
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

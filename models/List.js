@@ -13,7 +13,7 @@ List.init(
         },
         list_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         // item_id: {
         //     type: DataTypes.INTEGER,

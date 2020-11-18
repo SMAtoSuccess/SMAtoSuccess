@@ -6,20 +6,26 @@ const { List, Item, User } = require('../models');
 router.get('/', (req, res) => {
     List.findAll({
         where: {
-            id: req.session.user_id
+            user_id: req.session.user_id
         },
         attributes: [
             'id',
             'list_name'
         ],
-        include: [{
-            model: Item,
-            attributes: ['id', 'item_text', 'item_url', 'list_id'],
-            include: {
+        include: [
+            {
+                model: Item,
+                attributes: ['id', 'item_text', 'item_url', 'list_id'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
                 model: User,
                 attributes: ['username']
             }
-        }]
+        ]
     }).then(dbListData => {
         const lists = dbListData.map(list => list.get({ plain: true }));
         // maybe change the render to something else
@@ -34,6 +40,14 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+router.get('/list/:id', (req, res) => {
+    List.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+})
 
 
 module.exports = router;

@@ -1,12 +1,16 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="list-title"]').value.trim();
+    const title = document.querySelector('input[name="list-title"]').value;
+    // const user_id = window.location.toString().split('/') [
+    //     window.location.toString().split('/').length - 1
+    // ];
+
 
     const response = await fetch(`/api/list`, {
         method: 'POST',
         body: JSON.stringify({
-            title
+            title,
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -18,6 +22,9 @@ async function newFormHandler(event) {
     } else {
         alert(response.statusText);
     }
-};
+
+}
+    
+
 
 document.querySelector('.new-list-form').addEventListener('submit', newFormHandler);
