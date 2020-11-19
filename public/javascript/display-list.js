@@ -3,8 +3,8 @@ async function newFormHandler(event) {
 
     const list_name = document.querySelector('input[name="list-title"]').value.trim();
 
-    const response = await fetch(`/api/list`, {
-        method: 'POST',
+    const response = await fetch(`/api/list/:id`, {
+        method: 'get',
         body: JSON.stringify({
             list_name
         }),
@@ -14,7 +14,7 @@ async function newFormHandler(event) {
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/my-list');
     } else {
         alert(response.statusText);
     }
