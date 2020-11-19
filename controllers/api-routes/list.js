@@ -30,6 +30,7 @@ router.get('/:id', (req, res) => {
 // creates a list
 router.post('/', (req, res) => {
     List.create({
+            // change list_name to title
             list_name: req.body.list_name,
             user_id: req.session.user_id
         })
