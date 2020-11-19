@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, List } = require('../../models');
+const { User, List, Item } = require('../../models');
 
 
 router.get('/', (req, res) => {
@@ -15,7 +15,31 @@ router.get('/sign-up', (req, res) => {
 });
 
 router.get('/my-list', (req, res) => {
-    res.render('my-list');
+    List.findOne({
+        // where : {
+            
+        // },
+        attributes: [
+            'id',
+            'list_name',
+            'user_id'
+        ],
+        include: [{
+            model: Item,
+            attributes: ['id', 'item_text', 'item_url']
+        }]
+    })
+    .then(dbListData => {
+
+
+        res.json(dbListData);
+        res.render('my-list');
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+    
 });
 
 module.exports = router;

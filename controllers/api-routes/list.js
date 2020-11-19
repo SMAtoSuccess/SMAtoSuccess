@@ -8,24 +8,29 @@ router.get('/', (req, res) => {
 });
 
 // Get all Items in a specific List
-router.get('/:id', (req, res) => {
-    List.findOne({
-            attributes: [
-                'id',
-                'list_name',
-                'user_id'
-            ],
-            include: [{
-                model: Item,
-                attributes: ['id', 'item_text', 'item_url']
-            }]
-        })
-        .then(dbListData => res.json(dbListData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
+// router.get('/:id', (req, res) => {
+//     List.findOne({
+//             attributes: [
+//                 'id',
+//                 'list_name',
+//                 'user_id'
+//             ],
+//             include: [{
+//                 model: Item,
+//                 attributes: ['id', 'item_text', 'item_url']
+//             }]
+//         })
+//         .then(dbListData => {
+
+
+//             res.json(dbListData);
+            
+//             })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// });
 
 // creates a list
 router.post('/', (req, res) => {
@@ -36,8 +41,10 @@ router.post('/', (req, res) => {
         })
         .then(dbListData => {
             res.json(dbListData);
-            console.log(dbListData);
-
+            console.log('here is the list data: ', dbListData.list_name);
+            res.render('dashboard', {
+                list_name : dbListData.list_name
+            });
         })
         .catch(err => {
             console.log(err);
