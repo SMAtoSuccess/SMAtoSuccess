@@ -40,8 +40,8 @@ router.post('/', (req, res) => {
             user_id: req.session.user_id
         })
         .then(dbListData => {
-            res.json(dbListData);
-            console.log('here is the list data: ', dbListData.list_name);
+            // res.json(dbListData);
+            // console.log('here is the list data: ', dbListData.list_name);
             res.render('dashboard', {
                 list_name : dbListData.list_name
             });

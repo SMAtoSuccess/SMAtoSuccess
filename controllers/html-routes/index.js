@@ -31,9 +31,12 @@ router.get('/my-list', (req, res) => {
     })
     .then(dbListData => {
 
-
-        res.json(dbListData);
-        res.render('my-list');
+        res.render('my-list', {
+            list_name : dbListData.list_name,
+            items : dbListData.Item
+        });
+        // res.json(dbListData);
+        
     })
     .catch(err => {
         console.log(err);
