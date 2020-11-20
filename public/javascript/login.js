@@ -14,8 +14,7 @@ async function loginFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-
-        console.log('hey over here');
+        console.log('Hey over here');
         if (response.ok) {
             console.log('success');
             document.location.replace('/dashboard');

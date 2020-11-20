@@ -1,22 +1,22 @@
 {{#if loggedIn}}
 
 <article>
+
     <h2>List History</h2>
     <div class="">
         {{#each lists}}
-        <div class="col-4">
+        <div class = "col-4" >
             <a href="/my-list">{{list_name}}</a>
         </div>
         {{/each}}
     </div>
 
-    <h2>Create New List</h2>
     <form class="new-list-form">
         <div class="form-group">
             <label for="list-titles">Title</label>
-            <input name="list-title" type="text" class="form-control" value="{{list.list_name}}" />
+            <input name="list-title" for= "list-title" type="text" class="form-control" value="{{list.list_name}}" />
         </div>
-        <button type="submit" class="btn btn-danger ml-auto" >Create List</button>
+        <button type="submit" class="btn btn-danger ml-auto">Create List</button>
     </form>
 </article>
 

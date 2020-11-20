@@ -18,9 +18,12 @@ List.hasMany(Item, {
     foreignKey: 'list_id'
 });
 
-Item.belongsTo(User, {
-    foreignKey: 'user_id'
-})
+// not working 
+// Item.belongsToMany(Item, {
+//     through: List,
+//     as: 'list_id',
+//     foreignKey: 'user_id'
+// })
 
 
 
