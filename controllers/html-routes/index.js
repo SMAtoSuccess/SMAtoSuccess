@@ -3,7 +3,7 @@ const { User, List, Item } = require('../../models');
 
 
 router.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', { loggedIn: false });
 });
 
 router.get('/login', (req, res) => {
@@ -16,33 +16,34 @@ router.get('/sign-up', (req, res) => {
 
 router.get('/my-list', (req, res) => {
     List.findOne({
-        // where : {
-            
-        // },
-        attributes: [
-            'id',
-            'list_name',
-            'user_id'
-        ],
-        include: [{
-            model: Item,
-            attributes: ['id', 'item_text', 'item_url']
-        }]
-    })
-    .then(dbListData => {
+            // where : {
 
-        res.render('my-list', {
-            list_name : dbListData.list_name,
-            items : dbListData.Item
+            // },
+            attributes: [
+                'id',
+                'list_name',
+                'user_id'
+            ],
+            include: [{
+                model: Item,
+                attributes: ['id', 'item_text', 'item_url']
+            }]
+        })
+        .then(dbListData => {
+
+            res.render('my-list', {
+                loggedIn: true,
+                list_name: dbListData.list_name,
+                items: dbListData.Item
+            });
+            // res.json(dbListData);
+
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-        // res.json(dbListData);
-        
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-    
+
 });
 
 module.exports = router;

@@ -1,34 +1,55 @@
-    body {
-        /* The image used */
-        background-image: url("../images/winterwishlist.png");
-        /* Full height */
-        height: 100%;
-        /* Center and scale the image nicely */
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    
-    .modal-content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        left: 25%;
-        pointer-events: auto;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: .3rem;
-        outline: 0;
-        box-sizing: border-box;
-    }
-    
-    .modal-body {
-        position: relative;
-        flex: 1 1 auto;
-        padding: 1rem;
-    }
-    
-    .list-name {
-        position: center;
-    }
+        body {
+            /* The image used */
+            background-image: url("../images/winterwishlist.png");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            left: 25%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: .3rem;
+            outline: 0;
+            box-sizing: border-box;
+        }
+        
+        .modal-body {
+            position: relative;
+            flex: 1 1 auto;
+            padding: 1rem;
+        }
+        
+        .list-name {
+            position: center;
+        }
+        
+        .nav-link {
+            display: inline;
+        }
+        
+        main>h1 {
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        article>h2 {
+            text-align: center;
+        }
+        
+        footer {
+            position: absolute;
+            bottom: 100;
+            width: 100%;
+            padding-top: 3rem;
+        }

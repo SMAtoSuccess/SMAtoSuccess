@@ -2,25 +2,25 @@
 {{#each item_text}}
 {{/each}}
 <div class="modal-content">
-<div class="modal-body">
-<form class="item-form">
-   <div class="text-center"></div>
-    <div class="form-group">
-        <label class="form-label" for="item-name">What would you like?</label>
-        <input type="" class="form-control form-label" id="addItem" placeholder="Add an item..." />
+    <div class="modal-body">
+        <form class="item-form">
+            <div class="text-center"></div>
+            <div class="form-group">
+                <label class="form-label" for="item-name">What would you like?</label>
+                <input type="" class="form-control form-label" id="addItem" placeholder="Add an item..." />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="item-url">Website link (optional)</label>
+                <input type="url" class="form-control" id="item-url" placeholder="https://" />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="item-text">Note (optional)</label>
+                <input type="" class="form-control" id="item-text" placeholder="ex: I like the green one.." />
+            </div>
+            <div>
+                <button type="submit" class="btn btn-danger btn-success">Add Item</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label class="form-label" for="item-url">Website link (optional)</label>
-        <input type="url" class="form-control" id="item-url" placeholder="https://" />
-    </div>
-    <div class="form-group">
-        <label class="form-label" for="item-text">Note (optional)</label>
-        <input type="" class="form-control" id="item-text" placeholder="ex: I like the green one.." />
-    </div>
-    <div>
-        <button type="submit" class="btn btn-danger btn-success">Add Item</button>
-    </div>
-</form>
-</div>
 </div>
 <script src="/javascript/item.js"></script>
