@@ -4,12 +4,9 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers/index');
 const sequelize = require('./config/connection');
-<<<<<<< HEAD
-=======
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
->>>>>>> develop
 // Require the 'express-session' module
 
 
