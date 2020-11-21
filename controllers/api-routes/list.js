@@ -41,9 +41,10 @@ router.post('/', (req, res) => {
         })
         .then(dbListData => {
             // res.json(dbListData);
-            // console.log('here is the list data: ', dbListData.list_name);
+            console.log('here is the list data: ', dbListData.createdAt);
             res.render('dashboard', {
-                list_name : dbListData.list_name
+                list_name : dbListData.list_name,
+                createdAt : dbListData.createdAt
             });
         })
         .catch(err => {

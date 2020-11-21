@@ -1,7 +1,6 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
-
     const list_name = document.querySelector('input[name="list-title"]').value.trim();
 
     const response = await fetch(`/api/list`, {
