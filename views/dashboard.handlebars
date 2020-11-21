@@ -1,9 +1,9 @@
 {{#if loggedIn}}
 <article>
-    <form class="form-inline">
+    <form class="new-list-form form-inline">
         <div class="form-group mb-2">
             <label for="list-titles"><h4>Start here:</h4></label>
-            <input name="list-title" class="list-titles" for="list-title" type="text" value="{{list.list_name}}" />
+            <input required name="list-title" class="list-titles" for="list-title" type="text" value="{{list.list_name}}" />
         <button type="submit" class="btn btn-success mb-2">Create list</button>
       </div>
     </form>
@@ -12,11 +12,8 @@
       {{#each lists}}
     <div class="modal-content">
         <div class="modal-body">
-                    {{!-- <div class="container"> --}}
                 <div class="col-4">
                 <a href="/my-list">{{list_name}}</a>
-            
-            {{!-- </div> --}}
             </div>
         </div>
     </div>
