@@ -7,4 +7,7 @@ router.use('/list', listRoutes);
 const userRoutes = require('./user')
 router.use('/user', userRoutes);
 
+const itemRoutes = require('./item-routes')
+router.use('/item', itemRoutes);
+
 module.exports = router;

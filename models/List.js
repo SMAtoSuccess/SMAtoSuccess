@@ -12,16 +12,16 @@ List.init({
     },
     list_name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
     },
-    // item_id: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: true,
-    //     // references: {
-    //     //     model: 'list',
-    //     //     key: 'id'
-    //     // }
-    // },
+    item_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'list',
+            key: 'id'
+        }
+    },
     user_id: {
         type: DataTypes.INTEGER,
         references: {

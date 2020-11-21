@@ -1,50 +1,76 @@
 const router = require('express').Router();
 const { User, List, Item } = require("../../models");
 
-// GET /api/list
-router.get('/', (req, res) => {
-    res.render('home')
 
+router.get('/', (req, res) => {
+    List.findAll({
+        attributes: [
+            'id',
+            'list_name',
+            'item_id',
+            'user_id',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Item,
+                attributes: ['id', 'item_text', 'item_url', 'list_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+        ]
+    })
+        .then(dbListData => res.json(dbListData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
-// Get all Items in a specific List
-// router.get('/:id', (req, res) => {
-//     List.findOne({
-//             attributes: [
-//                 'id',
-//                 'list_name',
-//                 'user_id'
-//             ],
-//             include: [{
-//                 model: Item,
-//                 attributes: ['id', 'item_text', 'item_url']
-//             }]
-//         })
-//         .then(dbListData => {
-
-
-//             res.json(dbListData);
-            
-//             })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// });
+router.get('/:id', (req, res) => {
+    List.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'list_name',
+            'user_id',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Item,
+                attributes: ['id', 'item_text', 'item_url', 'list_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+        ]
+    }).then(dbListData => {
+        if (!dbListData) {
+            res.status(404).json({ message: 'No list found with this id' });
+            return;
+        }
+        res.json(dbListData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // creates a list
 router.post('/', (req, res) => {
     List.create({
-            // change list_name to title
-            list_name: req.body.list_name,
-            user_id: req.session.user_id
-        })
+        list_name: req.body.list_name,
+        user_id: req.session.user_id
+    })
         .then(dbListData => {
-            // res.json(dbListData);
-            // console.log('here is the list data: ', dbListData.list_name);
-            res.render('dashboard', {
-                list_name : dbListData.list_name
-            });
+            res.json(dbListData)
         })
         .catch(err => {
             console.log(err);

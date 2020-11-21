@@ -6,7 +6,10 @@
     <div class="">
         {{#each lists}}
         <div class = "col-4" >
-            <a href="/my-list">{{list_name}}</a>
+            <ol>
+                {{> list-info list}}
+                <a href="/api/list/{{list.id}}">{{list_name}}</a>
+            </ol>  
         </div>
         {{/each}}
     </div>
