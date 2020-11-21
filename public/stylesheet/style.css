@@ -74,22 +74,14 @@
             text-align: center;
         }
         
-        .footer,
-        .push {
-            height: 142px;
-            /* .push must be the same height as .footer */
-        }
-        /* text at bottom of footer not staying in footer */
-        
-        .footer {
+        footer {
             position: fixed;
             left: 0;
             bottom: 0;
             width: 100%;
             background-color: white;
-            text-align: center;
-            padding: 45px 35px;
-            height: 15%;
+            padding: 10px 20px;
+            text-align: right;
         }
         
         .form-inline {

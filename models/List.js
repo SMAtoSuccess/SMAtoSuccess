@@ -12,7 +12,10 @@ List.init({
     },
     list_name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
     },
     // item_id: {
     //     type: DataTypes.INTEGER,
