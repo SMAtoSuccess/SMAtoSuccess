@@ -1,26 +1,26 @@
 {{#if loggedIn}}
 <article>
-    <form class="new-list-form">
-        <div class="label-box">
-            <label for="list-titles">List Name</label>
-            <input name="list-title" for="list-title" type="text" value="{{list.list_name}}" />
-        </div>
-        <button type="submit" class="btn btn-danger ml-auto">Create List</button>
+    <form class="form-inline">
+        <div class="form-group mb-2">
+            <label for="list-titles"><h4>Start here:</h4></label>
+            <input name="list-title" class="list-titles" for="list-title" type="text" value="{{list.list_name}}" />
+        <button type="submit" class="btn btn-success mb-2">Create list</button>
+      </div>
     </form>
 
     <h2>My lists</h2>
+      {{#each lists}}
     <div class="modal-content">
         <div class="modal-body">
-            <div class="container">
-            {{#each lists}}
-            <div class="col-4">
+                    {{!-- <div class="container"> --}}
+                <div class="col-4">
                 <a href="/my-list">{{list_name}}</a>
-            </div>
-            {{/each}}
+            
+            {{!-- </div> --}}
             </div>
         </div>
     </div>
-
+  {{/each}}
 </article>
 
 <script src="/javascript/create-list.js"></script>

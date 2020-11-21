@@ -46,10 +46,64 @@
         article>h2 {
             text-align: center;
         }
-        
-        footer {
-            position: absolute;
-            bottom: 100;
+        /* footer {
+            position: block;
             width: 100%;
             padding-top: 3rem;
+        } */
+        
+        * {
+            margin: 0;
+        }
+        
+        html,
+        body {
+            height: 100%;
+        }
+        
+        .wrapper {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -142px;
+            /* the bottom margin is the negative value of the footer's height */
+        }
+        
+        .label-box {
+            margin-top: 5rem;
+            text-align: center;
+        }
+        
+        .footer,
+        .push {
+            height: 142px;
+            /* .push must be the same height as .footer */
+        }
+        /* text at bottom of footer not staying in footer */
+        
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            text-align: center;
+            padding: 45px 35px;
+            height: 15%;
+        }
+        
+        .form-inline {
+            justify-content: center;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .list-titles {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            border-radius: .5rem;
+        }
+        
+        .btn {
+            border-radius: .5rem;
         }
