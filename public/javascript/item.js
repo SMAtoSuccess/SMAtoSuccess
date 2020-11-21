@@ -5,18 +5,19 @@ async function addItemtoList(event) {
     // const list_id = document;
     const item_text = document.querySelector('input[name="item-name"]').value.trim();
     const item_url = document.querySelector('input[name="item-url"]').value.trim();
-    const list_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
+    // console.log(window.location);
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length
         
     ];
 
-    // console.log(id);
-    const response = await fetch(`/api/item/${list_id}`, {
+    // console.log(list_id);
+    const response = await fetch(`/api/list/${id}`, {
         method: 'POST',
         body: JSON.stringify({
             item_text,
             item_url,
-            list_id
+            id
         }),
         headers: {
             'Content-Type': 'application/json'

@@ -17,12 +17,16 @@
                 {{> list-info list}}
                 <a href="/api/list/{{list.list_id}}">{{list_name}}</a>
             </ol>  
+        </div>
+        {{/each}}
+    </div>
+        
     <h2>My lists</h2>
       {{#each lists}}
     <div class="modal-content">
         <div class="modal-body">
             <div class="col-4">
-                <a href="/my-list">{{list_name}}</a>
+                <a href="/api/list/{{id}}?{{id}}">{{list_name}}</a>
             </div>
             <div class="col-4">
                 <p>Created: {{createdAt}}</p>

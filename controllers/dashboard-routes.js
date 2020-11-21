@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
         ]
         }).then(dbListData => {
             const lists = dbListData.map(list => list.get({ plain: true }));
+            console.log(lists);
             res.render('dashboard', {
                 // User
                 lists : lists,

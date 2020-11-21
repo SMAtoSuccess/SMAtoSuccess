@@ -55,7 +55,8 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ message: 'No list found with this id' });
             return;
         }
-        res.json(dbListData);
+        // res.json(dbListData);
+        res.render('my-list');
     })
     .catch(err => {
         console.log(err);
