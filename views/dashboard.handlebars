@@ -1,6 +1,13 @@
 {{#if loggedIn}}
 
 <article>
+    <form class="new-list-form form-inline">
+        <div class="form-group mb-2">
+            <label for="list-titles"><h4>Start here:</h4></label>
+            <input required name="list-title" class="list-titles" for="list-title" type="text" value="{{list.list_name}}" />
+        <button type="submit" class="btn btn-success mb-2">Create list</button>
+      </div>
+    </form>
 
     <h2>List History</h2>
     <div class="">
@@ -10,18 +17,20 @@
                 {{> list-info list}}
                 <a href="/api/list/{{list.list_id}}">{{list_name}}</a>
             </ol>  
+    <h2>My lists</h2>
+      {{#each lists}}
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="col-4">
+                <a href="/my-list">{{list_name}}</a>
+            </div>
+            <div class="col-4">
+                <p>Created: {{createdAt}}</p>
+            </div>
         </div>
-        {{/each}}
     </div>
-
-    <form class="new-list-form">
-        <div class="form-group">
-            <label for="list-titles">Title</label>
-            <input name="list-title" for= "list-title" type="text" class="form-control" value="{{list.list_name}}" />
-        </div>
-        <button type="submit" class="btn btn-danger ml-auto">Create List</button>
-    </form>
+  {{/each}}
 </article>
 
-<script src = "/javascript/create-list.js"></script>
+<script src="/javascript/create-list.js"></script>
 {{/if}}

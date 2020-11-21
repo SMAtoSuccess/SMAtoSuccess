@@ -13,13 +13,8 @@ List.init({
     list_name: {
         type: DataTypes.STRING,
         allowNull: false,
-    },
-    item_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-            model: 'list',
-            key: 'id'
+        validate: {
+            notEmpty: true
         }
     },
     user_id: {
