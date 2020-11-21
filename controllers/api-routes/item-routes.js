@@ -11,7 +11,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    console.log("hey");
     if (req.session) {
+        console.log(req.body.list_id);
         Item.create({
             item_text: req.body.item_text,
             list_id: req.body.list_id,

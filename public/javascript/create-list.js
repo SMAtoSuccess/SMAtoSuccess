@@ -3,11 +3,11 @@ async function newFormHandler(event) {
 
 
     const list_name = document.querySelector('input[name="list-title"]').value.trim();
-   
+
     const response = await fetch(`/api/list`, {
         method: 'post',
         body: JSON.stringify({
-            list_name
+            list_name,
         }),
         headers: {
             'Content-Type': 'application/json'
