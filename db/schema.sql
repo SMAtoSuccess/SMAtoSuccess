@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS sma_db;
+DROP DATABASE IF EXISTS christmas_db;
 
-CREATE DATABASE sma_db;
+CREATE DATABASE christmas_db;

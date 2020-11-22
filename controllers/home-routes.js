@@ -1,13 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { List, Item, User } = require('../models');
-
+const { User, List, Item } = require('../models');
 
 router.get('/', (req, res) => {
     List.findAll({
-        where: {
-            user_id: req.session.user_id
-        },
         attributes: [
             'id',
             'list_name',
@@ -17,7 +13,7 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: Item,
-                attributes: ['id', 'item_text', 'item_url', 'list_id', 'user_id', 'created_at'],
+                attributes: ['id', 'item_text', 'list_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -28,12 +24,11 @@ router.get('/', (req, res) => {
                 attributes: ['username']
             }
         ]
-        }).then(dbListData => {
+    })
+        .then(dbListData => {
             const lists = dbListData.map(list => list.get({ plain: true }));
-            console.log(lists);
             res.render('dashboard', {
-                // User
-                lists : lists,
+                lists,
                 loggedIn: req.session.loggedIn
             });
         })
@@ -43,7 +38,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('list/:id', (req, res) => {
+router.get('/list/:id', (req, res) => {
     List.findOne({
         where: {
             id: req.params.id
@@ -69,23 +64,22 @@ router.get('list/:id', (req, res) => {
             }
         ]
     }).then(dbListData => {
-        if (dbListData) {
-            const list = dbListData.get({ plain: true });
-
-            res.render('my-list', {
-                list,
-                loggedIn: true
-            });
-        } else {
-            res.status(404).end();
+        if (!dbListData) {
+            res.status(404).json({ message: 'no list found with this id' });
+            return;
         }
-    })       
+        
+        const list = dbListData.get({ plain: true });
+
+        res.render('my-list', {
+            list,
+            loggedIn: req.session.loggedIn
+        });
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
-
-
 
 module.exports = router;

@@ -1,9 +1,107 @@
-body {
-    /* The image used */
-    background-image: url("../images/winterwishlist.png");
-    /* Full height */
-    height: 100%;
-    /* Center and scale the image nicely */
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+        body {
+            /* The image used */
+            background-image: url("../images/winterwishlist.png");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-repeat: repeat;
+            background-size: cover;
+        }
+        
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            left: 25%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: .3rem;
+            outline: 0;
+            box-sizing: border-box;
+        }
+        
+        .modal-body {
+            position: relative;
+            flex: 1 1 auto;
+            padding: 1rem;
+        }
+        
+        .list-name {
+            position: center;
+        }
+        
+        .nav-link {
+            display: inline;
+        }
+        
+        main>h1 {
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        article>h2 {
+            text-align: center;
+        }
+        /* footer {
+            position: block;
+            width: 100%;
+            padding-top: 3rem;
+        } */
+        
+        * {
+            margin: 0;
+        }
+        
+        html,
+        body {
+            height: 100%;
+        }
+        
+        .wrapper {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -142px;
+            /* the bottom margin is the negative value of the footer's height */
+        }
+        
+        .label-box {
+            margin-top: 5rem;
+            text-align: center;
+        }
+        
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color:white;
+            
+            padding: 10px 20px;
+            text-align: center;
+            height: 5%;
+        }
+
+        /* .Winter_wishlist, .fa {
+            color: white;
+        }
+         */
+        .form-inline {
+            justify-content: center;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .list-titles {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            border-radius: .5rem;
+        }
+        
+        .btn {
+            border-radius: .5rem;
+        }

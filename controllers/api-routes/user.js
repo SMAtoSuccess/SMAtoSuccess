@@ -17,11 +17,25 @@ router.get('/', (req, res) => {
 // GET /api/users/1
 router.get('/:id', (req, res) => {
     User.findOne({
-            attributes: { exclude: ['password'] },
-            where: {
-                id: req.params.id
+        attributes: { exclude: ['password'] },
+        where: {
+            id: req.params.id
+        },
+        include: [
+            {
+                model: List,
+                attributes: ['id', 'list_name', 'item_id', 'user_id']
+            },
+            {
+                model: Item,
+                attributes: ['id', 'item_text', 'item_url', 'list_id'],
+                include: {
+                    model: List,
+                    attributes: ['list_name']
+                }
             }
-        })
+        ]
+    })
         .then(dbUserData => {
             if (!dbUserData) {
                 res.status(404).json({ message: 'No user found with this id' });
@@ -36,7 +50,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-
     User.findOne({
         where: {
             email: req.body.email
@@ -151,52 +164,6 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-
-// // Items in the List
-
-// // Find all items
-// router.get('/items', (req, res) => {
-//     Item.findAll()
-//         .then((dbItemData) => res.json(dbItemData))
-//         .catch((err) => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// });
-
-// // Create Items
-// router.post('/items', (req, res) => {
-//     Item.create({
-//             item_text: req.body.item_text,
-//             item_url: req.body.item_url,
-//             list_id: req.body.list_id
-//         })
-//         .then(dbItemData => res.json(dbItemData))
-//         .catch(err => {
-//             console.log(err);
-//             res.status(400).json(err);
-//         });
-// });
-
-
-// router.delete('/items/:id', (req, res) => {
-//     Item.destroy({
-//             where: {
-//                 id: req.params.id
-//             }
-//         })
-//         .then(dbItemData => {
-//             if (!dbItemData) {
-//                 res.status(404).json({ message: 'No item found with this id' });
-//                 return;
-//             }
-//             res.json(dbItemdata)
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// });
 
 
 module.exports = router;
