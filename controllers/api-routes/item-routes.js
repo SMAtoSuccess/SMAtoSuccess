@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.post('/', (req, res) => {
+router.post('/:id', (req, res) => {
     console.log("hey");
     if (req.session) {
         console.log(req.body.list_id);
