@@ -79,17 +79,17 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: #048a04;
-            color: white;
+            background-color:white;
+            
             padding: 10px 20px;
             text-align: center;
             height: 5%;
         }
 
-        .Winter_wishlist, .fa {
+        /* .Winter_wishlist, .fa {
             color: white;
         }
-        
+         */
         .form-inline {
             justify-content: center;
             margin-top: 2rem;

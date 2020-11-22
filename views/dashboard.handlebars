@@ -4,7 +4,7 @@
     <form class="new-list-form form-inline">
         <div class="form-group mb-2">
             <label for="list-titles"><h4>Start here:</h4></label>
-            <input required name="list-title" class="list-titles" for="list-title" type="text" value="{{list.list_name}}" />
+            <input required name="list-title" class="list-titles" for="list-title" type="text" value="{{list_name}}" />
         <button type="submit" class="btn btn-success mb-2">Create list</button>
       </div>
     </form>
@@ -15,7 +15,7 @@
         <div class = "col-4" >
             <ol>
                 {{> list-info list}}
-                <a href="/api/list/{{list.list_id}}">{{list_name}}</a>
+                <a href="/api/list/{{id}}">{{list_name}}</a>
             </ol>  
         </div>
         {{/each}}
