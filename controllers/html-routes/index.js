@@ -13,7 +13,7 @@ router.get('/sign-up', (req, res) => {
     res.render('sign-up');
 });
 
-router.get('/api/list/', (req, res) => {
+router.get('/api/list', (req, res) => {
     res.render('my-list');
 });
 
