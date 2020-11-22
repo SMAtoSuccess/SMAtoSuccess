@@ -17,4 +17,8 @@ router.get('/api/list/', (req, res) => {
     res.render('my-list');
 });
 
+// router.get('/api/list/:id', (req, res) => {
+//     res.render('dashboard');
+// });
+
 module.exports = router;

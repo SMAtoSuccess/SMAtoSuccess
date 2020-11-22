@@ -79,6 +79,12 @@ router.post('/', (req, res) => {
         });
 });
 
+// router.post('/:id', (req, res) => {
+//     List.create({
+
+//     })
+// })
+
 // updates list 
 router.put('/:id', (req, res) => {
     List.update({

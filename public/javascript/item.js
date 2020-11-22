@@ -6,18 +6,16 @@ async function addItemtoList(event) {
     const item_text = document.querySelector('input[name="item-name"]').value.trim();
     const item_url = document.querySelector('input[name="item-url"]').value.trim();
     // console.log(window.location);
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length
-        
-    ];
+    console.log(window.location.href.split('?')[1]);
+    const id = window.location.href.split('?')[1];
 
-    // console.log(list_id);
-    const response = await fetch(`/api/list/${id}`, {
+    console.log(id);
+    const response = await fetch(`/api/item/${id}`, {
         method: 'POST',
         body: JSON.stringify({
             item_text,
             item_url,
-            id
+            list_id : id
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -25,7 +23,7 @@ async function addItemtoList(event) {
     });
 
     if (response.ok) {
-        document.location.replace('/api/list');
+        document.location.replace(`/api/list`);
     } else {
         alert(response.statusText);
     }
