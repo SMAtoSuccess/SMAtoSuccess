@@ -23,7 +23,7 @@ async function addItemtoList(event) {
     });
 
     if (response.ok) {
-        document.location.replace(`/api/list`);
+        document.location.replace(`/dashboard`);
     } else {
         alert(response.statusText);
     }
