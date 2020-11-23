@@ -70,7 +70,7 @@ router.get('/list/:id', (req, res) => {
         }
         
         const list = dbListData.get({ plain: true });
-
+        
         res.render('my-list', {
             list,
             loggedIn: req.session.loggedIn

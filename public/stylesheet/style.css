@@ -7,20 +7,36 @@
             background-repeat: repeat;
             background-size: cover;
         }
+        /* .login-form {
+            /* display: flex; */
+        /* padding-left: 100px;
+            padding-top: 100px;
+            width: 30%;
+            justify-content: center;
+            
+            
+        } */
         
         .modal-content {
+            margin-top: 100px;
             position: relative;
             display: flex;
             flex-direction: column;
             width: 50%;
             left: 25%;
             pointer-events: auto;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.5);
             background-clip: padding-box;
             border: 1px solid rgba(0, 0, 0, 0.2);
             border-radius: .3rem;
             outline: 0;
             box-sizing: border-box;
+            
+        }
+        
+        .login-btn,
+        .signup-btn {
+            margin-top: 10px;
         }
         
         .modal-body {
@@ -79,17 +95,16 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color:white;
-            
+            background-color: white;
             padding: 10px 20px;
             text-align: center;
             height: 5%;
         }
-
         /* .Winter_wishlist, .fa {
             color: white;
         }
          */
+        
         .form-inline {
             justify-content: center;
             margin-top: 2rem;
@@ -104,4 +119,8 @@
         
         .btn {
             border-radius: .5rem;
+        }
+        
+        .about-p {
+            text-align: center;
         }

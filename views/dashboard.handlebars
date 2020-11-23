@@ -3,10 +3,12 @@
 <article>
     <form class="new-list-form form-inline">
         <div class="form-group mb-2">
-            <label for="list-titles"><h4>Start here:</h4></label>
+            <label for="list-titles">
+                <h4>Start here:</h4>
+            </label>
             <input required name="list-title" class="list-titles" for="list-title" type="text" value="{{list_name}}" />
-        <button type="submit" class="btn btn-success mb-2">Create list</button>
-      </div>
+            <button type="submit" class="btn btn-success mb-2">Create list</button>
+        </div>
     </form>
 
     {{!-- <h2>List History</h2>
@@ -20,21 +22,41 @@
         </div>
         {{/each}}
     </div> --}}
-        
+
     <h2>My lists</h2>
-      {{#each lists}}
-    <div class="modal-content">
-        <div class="modal-body">
-            <div class="col-4">
-                <a href="/api/list/{{id}}?{{id}}">{{list_name}}</a>
-            </div>
-            <div class="col-4">
-                <p>{{list_id}}, {{id}}</p>
-                <p>Created: {{createdAt}}</p>
+    {{#each lists}}
+    <div class="card" style="width: 18rem;">
+        {{!-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
+        <div class="card-body">
+            <h5 class="card-title"><a href="/api/list/{{id}}?{{id}}">{{list_name}}</a></h5>
+            {{!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p> --}}
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">List #{{id}}</li>
+            <li class="list-group-item">Created: {{created_at}}</li>
+            {{#each items}}
+            <li class="list-group-item">{{ item_text }}</li>
+            {{/each}}
+        </ul>
+    </div>
+    {{/each}}
+        {{!-- <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-4">
+                    <a href="/api/list/{{id}}?{{id}}">{{list_name}}</a>
+                </div>
+                <div class="col-4">
+                    <p>List #{{id}}</p>
+                    <p>Created: {{created_at}}</p>
+                    {{#each items}}
+                    <p>{{ item_text }}</p>
+                    {{/each}}
+                    <p></p>
+                </div>
             </div>
         </div>
-    </div>
-  {{/each}}
+        {{/each}} --}}
 </article>
 
 <script src="/javascript/create-list.js"></script>

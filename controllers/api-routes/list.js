@@ -56,7 +56,9 @@ router.get('/:id', (req, res) => {
             return;
         }
         // res.json(dbListData);
-        res.render('my-list');
+        res.render('my-list',{
+            loggedIn: true
+        });
     })
     .catch(err => {
         console.log(err);
