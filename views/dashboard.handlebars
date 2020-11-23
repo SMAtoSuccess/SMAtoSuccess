@@ -29,8 +29,12 @@
                 <a href="/api/list/{{id}}?{{id}}">{{list_name}}</a>
             </div>
             <div class="col-4">
-                <p>{{list_id}}, {{id}}</p>
-                <p>Created: {{createdAt}}</p>
+                <p>List #{{id}}</p>
+                <p>Created: {{created_at}}</p>
+                {{#each items}}
+                <p>{{ item_text }}</p>
+                {{/each}}
+                <p></p>
             </div>
         </div>
     </div>
