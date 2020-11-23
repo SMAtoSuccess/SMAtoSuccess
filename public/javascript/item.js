@@ -1,7 +1,7 @@
 async function addItemtoList(event) {
     event.preventDefault();
     console.log('Gonna add an item to the list!');
-    
+
     // const list_id = document;
     const item_text = document.querySelector('input[name="item-name"]').value.trim();
     const item_url = document.querySelector('input[name="item-url"]').value.trim();
@@ -15,7 +15,7 @@ async function addItemtoList(event) {
         body: JSON.stringify({
             item_text,
             item_url,
-            list_id : id
+            list_id: id
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -28,8 +28,8 @@ async function addItemtoList(event) {
         alert(response.statusText);
     }
 
-    
-    
+
+
 };
 
 document.querySelector('.item-form').addEventListener('submit', addItemtoList);
