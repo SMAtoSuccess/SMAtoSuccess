@@ -24,8 +24,10 @@
     </div> --}}
 
     <h2>My lists</h2>
+    <div class = "row d-flex justify-content-center">
     {{#each lists}}
-    <div class="card" style="width: 18rem;">
+    
+    <div class="card col-sm-2 align-self-start" style="width: 18rem;">
         {{!-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
         <div class="card-body">
             <h5 class="card-title"><a href="/api/list/{{id}}?{{id}}">{{list_name}}</a></h5>
@@ -40,7 +42,9 @@
             {{/each}}
         </ul>
     </div>
+    
     {{/each}}
+    </div>
         {{!-- <div class="modal-content">
             <div class="modal-body">
                 <div class="col-4">
