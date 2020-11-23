@@ -25,12 +25,13 @@
             width: 50%;
             left: 25%;
             pointer-events: auto;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.5);
             background-clip: padding-box;
             border: 1px solid rgba(0, 0, 0, 0.2);
             border-radius: .3rem;
             outline: 0;
             box-sizing: border-box;
+            
         }
         
         .login-btn,
