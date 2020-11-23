@@ -30,10 +30,11 @@ router.get('/', (req, res) => {
         ]
         }).then(dbListData => {
             const lists = dbListData.map(list => list.get({ plain: true }));
-            
+            console.log(lists.created_at);
             res.render('dashboard', {
                 // User
                 // item_text: item_text,
+                createdAt : lists.created_at,
                 lists : lists,
                 loggedIn: req.session.loggedIn
             });
