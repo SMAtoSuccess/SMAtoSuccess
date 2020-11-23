@@ -6,7 +6,7 @@ const { List, Item, User } = require('../models');
 router.get('/', (req, res) => {
     List.findAll({
         where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
         },
         attributes: [
             'id',
@@ -30,9 +30,10 @@ router.get('/', (req, res) => {
         ]
         }).then(dbListData => {
             const lists = dbListData.map(list => list.get({ plain: true }));
-            console.log(lists);
+            
             res.render('dashboard', {
                 // User
+                // item_text: item_text,
                 lists : lists,
                 loggedIn: req.session.loggedIn
             });
